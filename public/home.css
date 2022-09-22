@@ -1,0 +1,46 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.home{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+}
+.box{
+    flex-grow: 1;
+    max-height: 60%;
+    width: 60%;
+    margin-bottom: 4%;
+    margin-top: 3%;
+    border: 1px solid black;
+    overflow-x: hidden;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 2% 5%;
+}
+form{
+    width: 60%;
+    display: flex;
+    justify-content: center;
+}
+form input{
+    width: 60%;
+    margin-right: 3%;
+    font-size: 1.5rem;
+    padding: 1% 2%;
+}
+form button{
+    font-size: 1.3rem;
+    border-radius: 10px;
+}
+form button:hover{
+    color: white;
+    background-color: black;
+}
+.box p{
+    font-size: 1.4rem;
+}
