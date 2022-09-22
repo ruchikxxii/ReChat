@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ReChat</title>
     <link rel="stylesheet" href="home.css">
+    <script defer src="home.js"></script>
 </head>
 <body>
     <div class="home">
@@ -15,7 +16,7 @@
             <%}%>
         </div>
         <form action="/home?username=<%=username%>" method="post">
-            <input type="text" name="message" id="">
+            <input type="text" name="content" id="">
             <button type="submit">Send</button>
         </form>
     </div>

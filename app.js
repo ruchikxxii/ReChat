@@ -2,17 +2,13 @@ const express = require('express')
 
 const app = express();
 
+const {getMessages,router} = require(__dirname+'/routes/homeRouter')
+
 app.use(express.static(__dirname+'/public'))
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 app.set('view engine','ejs')
-
-const messages = [
-    {
-        username:"Bot",
-        content:"Welcome to ReChat"
-    }
-]
+app.use('/home',router)
 
 app.get('/',(req,res)=>{
     res.sendFile(__dirname+"/public/login.html")
@@ -24,7 +20,10 @@ app.post('/login',(req,res)=>{
 })
 
 app.get('/home',(req,res)=>{
-    res.render('home',{username:req.query.username,messages:messages});
+    const prom = getMessages();
+    prom.then(messages=>{
+        res.render('home',{username:req.query.username,messages:messages});
+    })
 })
 
 app.listen(3000,()=>{
